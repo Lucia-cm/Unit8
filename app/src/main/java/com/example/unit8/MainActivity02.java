@@ -7,7 +7,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
+import androidx.viewpager.widget.ViewPager;
 
+import com.google.android.material.tabs.TabItem;
 import com.google.android.material.tabs.TabLayout;
 
 public class MainActivity02 extends AppCompatActivity {
@@ -19,32 +21,31 @@ public class MainActivity02 extends AppCompatActivity {
 
         final TabLayout tabLayout=(TabLayout) findViewById(R.id.tabLayout);
 
+        ViewPager paginador=(ViewPager) findViewById(R.id.contenedor02);
+
         tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
                 Fragment fragment=null;
                 FragmentManager fm=getSupportFragmentManager();
                 FragmentTransaction ft=fm.beginTransaction();
-                Log.i("tab:", String.valueOf(tab.getPosition()));
+
+                paginador.setCurrentItem(tab.getPosition());
+
+                Adapter adapter=new Adapter(getSupportFragmentManager(), tabLayout.getTabCount());
+                paginador.setAdapter(adapter);
+                paginador.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
+
                 switch (tab.getPosition()){
                     case 0: fragment=new Fragmento_primero(); break;
                     case 1: fragment=new Fragmento_segundo(); break;
                     case 2: fragment=new Fragmento_tercero(); break;
                     default:fragment=new Fragmento_primero(); break;
                 }
-
-                //if(tab.getPosition()==0)fragment=new Fragmento_primero();
                 ft.replace(R.id.contenedor,fragment);
                 ft.addToBackStack(null);
                 ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
                 ft.commit();
-                /*
-                    FragmentManager fragmentManager = getFragmentManager();
-                    FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-                    fragmentTransaction.replace(R.id.fragment_container, mFeedFragment);
-                    fragmentTransaction.addToBackStack(null);
-                    fragmentTransaction.commit();
-                 */
             }
 
             @Override

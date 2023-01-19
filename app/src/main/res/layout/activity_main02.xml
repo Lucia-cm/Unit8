@@ -42,6 +42,12 @@
             android:text="TERCERO" />
     </com.google.android.material.tabs.TabLayout>
 
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/contenedor02"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"/>
+
     <FrameLayout
         android:id="@+id/contenedor"
         android:layout_width="match_parent"
