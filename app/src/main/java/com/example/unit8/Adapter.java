@@ -21,9 +21,10 @@ public class Adapter extends FragmentStatePagerAdapter {
                     return fp;
             case 1: Fragmento_segundo fs=new Fragmento_segundo();
                     return fs;
-            default: Fragmento_tercero ft=new Fragmento_tercero();
+            case 2: Fragmento_tercero ft=new Fragmento_tercero();
                     return ft;
         }
+        return null;
     }
 
     @Override

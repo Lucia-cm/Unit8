@@ -23,6 +23,10 @@ public class MainActivity02 extends AppCompatActivity {
 
         ViewPager paginador=(ViewPager) findViewById(R.id.contenedor02);
 
+        Adapter adapter=new Adapter(getSupportFragmentManager(), tabLayout.getTabCount());
+        paginador.setAdapter(adapter);
+        paginador.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
+
         tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
@@ -31,32 +35,13 @@ public class MainActivity02 extends AppCompatActivity {
                 FragmentTransaction ft=fm.beginTransaction();
 
                 paginador.setCurrentItem(tab.getPosition());
-
-                Adapter adapter=new Adapter(getSupportFragmentManager(), tabLayout.getTabCount());
-                paginador.setAdapter(adapter);
-                paginador.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
-
-                switch (tab.getPosition()){
-                    case 0: fragment=new Fragmento_primero(); break;
-                    case 1: fragment=new Fragmento_segundo(); break;
-                    case 2: fragment=new Fragmento_tercero(); break;
-                    default:fragment=new Fragmento_primero(); break;
-                }
-                ft.replace(R.id.contenedor,fragment);
-                ft.addToBackStack(null);
-                ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
-                ft.commit();
             }
 
             @Override
-            public void onTabUnselected(TabLayout.Tab tab) {
-
-            }
+            public void onTabUnselected(TabLayout.Tab tab) {}
 
             @Override
-            public void onTabReselected(TabLayout.Tab tab) {
-
-            }
+            public void onTabReselected(TabLayout.Tab tab) {}
         });
 
     }
