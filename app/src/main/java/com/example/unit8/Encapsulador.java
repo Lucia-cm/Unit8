@@ -5,7 +5,7 @@ public class Encapsulador {
     String textoTitulo;
     String textoContenido;
 
-    public Encapsulador(int idImagen, String textoTitulo, String tentoCoxtenido) {
+    public Encapsulador(int idImagen, String textoTitulo, String textoContenido) {
         this.idImagen = idImagen;
         this.textoTitulo = textoTitulo;
         this.textoContenido = textoContenido;

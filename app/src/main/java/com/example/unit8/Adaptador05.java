@@ -21,15 +21,17 @@ public class Adaptador05 extends RecyclerView.Adapter <Adaptador05.MiHolder> {
     @NonNull
     @Override
     public MiHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view= LayoutInflater.from(parent.getContext()).inflate(R.layout.carta,parent,false);
-
+        //View view= LayoutInflater.from(parent.getContext()).inflate(R_layout_IdView,parent,false);
+        //no funciona, el siguiente le sustituye:
+        View view = LayoutInflater.from(parent.getContext())
+                .inflate(R.layout.carta, parent, false);
         return new MiHolder(view);
     }
 
     @Override
     public void onBindViewHolder(@NonNull MiHolder holder, int position) {
         holder.imagen.setImageResource(entradas.get(position).getIdImagen());
-        holder.titulo.setText(entradas.get(position).textoTitulo);
+        holder.titulo.setText(entradas.get(position).getTextoTitulo());
         holder.texto.setText(String.valueOf(entradas.get(position).getTextoContenido()));
     }
 
