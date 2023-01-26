@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/menuT"
+    >
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_home"
+            android:checked="true"
+            android:icon="@drawable/biography"
+            android:title="BIOGRAFÍA"
+            app:showAsAction="ifRoom" />
+        <item
+            android:id="@+id/nav_productos"
+            android:icon="@drawable/sculpture"
+            android:title="ESCULTURA" />
+        <item
+            android:id="@+id/nav_carrito"
+            android:icon="@drawable/painting"
+            android:title="PINTURA" />
+        <item
+            android:id="@+id/nav_ordenes"
+            android:icon="@drawable/arquitecture"
+            android:title="ARQUITECTURA" />
+
+        <!-- Sección de configuración -->
+        <item
+            android:id="@+id/opciones"
+            android:title="OPCIONES">
+            <menu>
+                <item
+                    android:id="@+id/ayuda"
+                    android:icon="@android:drawable/ic_menu_help"
+                    android:title="AYUDA" />
+                <item
+                    android:id="@+id/busqueda"
+                    android:icon="@android:drawable/ic_menu_compass"
+                    android:title="BÚSQUEDA" />
+                <item
+                    android:id="@+id/salida"
+                    android:icon="@android:drawable/ic_lock_power_off"
+                    android:title="SALIDA" />
+            </menu>
+        </item>
+    </group>
+
+</menu>
