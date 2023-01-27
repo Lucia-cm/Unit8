@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="192dp"
@@ -8,19 +9,32 @@
     android:background="@drawable/img_cabecera"
     style="@style/ThemeOverlay.AppCompat.Dark">
 
-    <!-- de.hdodenhof.circleimageview.CircleImageView/ -->
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/imagen"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:padding="2dp"
+        android:layout_marginTop="16dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/person"
+        app:shapeAppearanceOverlay="@style/roundedImagen"
+        app:strokeWidth="4dp"
+        app:strokeColor="@color/white"/>
+
     <TextView
         android:id="@+id/title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         style="@style/TextAppearance.AppCompat.Body1"
         android:textStyle="bold"
-        android:text="Título" />
+        android:text="Título"
+        android:textColor="@color/white"/>
 
     <TextView
         android:id="@+id/subtitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         style="@style/Widget.AppCompat.Spinner"
-        android:text="Subtítulo" />
+        android:text="Subtítulo"
+        android:textColor="@color/white"/>
 </LinearLayout>
